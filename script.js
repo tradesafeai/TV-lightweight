@@ -27,7 +27,7 @@ const chart = LightweightCharts.createChart(document.getElementById('chartContai
 });
 
 const lineSeries = chart.addLineSeries({
-    color: '#00ff55', // Neon green line for a cool look
+    color: '#00ff55', // Neon green for a cool vibe
     lineWidth: 2,
 });
 
@@ -48,4 +48,15 @@ chart.timeScale().fitContent();
 
 window.addEventListener('resize', () => {
     chart.resize(window.innerWidth, 400);
+});
+
+// Optional: Add attribution logo for prominent credit
+chart.applyOptions({
+    attributionLogo: {
+        visible: true,
+        href: 'https://www.tradingview.com/',
+        height: 20,
+        width: 50,
+        position: 'bottom-right',
+    },
 });
