@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Crypto Chart</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Temporary CSP to allow external scripts, remove or configure in Netlify for production -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://unpkg.com https://cdn.jsdelivr.net; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline';">
 </head>
 <body>
     <div id="chartContainer"></div>
     <p>Powered by <a href="https://www.tradingview.com/" target="_blank">TradingView</a></p>
+    <!-- Primary CDN with fallback -->
     <script src="https://unpkg.com/lightweight-charts@5.0.8/dist/lightweight-charts.standalone.production.js"></script>
+    <script>
+        // Fallback to alternative CDN if the primary fails
+        if (typeof LightweightCharts === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@5.0.8/dist/lightweight-charts.standalone.production.js"><\/script>');
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
