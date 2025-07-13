@@ -1,62 +1,19 @@
-const chart = LightweightCharts.createChart(document.getElementById('chartContainer'), {
-    width: window.innerWidth,
-    height: 400,
-    layout: {
-        background: { type: 'solid', color: '#0d1a26' },
-        textColor: '#ffffff',
-        fontFamily: 'Arial',
-    },
-    grid: {
-        vertLines: { color: 'rgba(255, 255, 255, 0.1)' },
-        horzLines: { color: 'rgba(255, 255, 255, 0.1)' },
-    },
-    timeScale: {
-        timeVisible: true,
-        secondsVisible: false,
-    },
-    crosshair: {
-        mode: LightweightCharts.CrosshairMode.Normal,
-        vertColor: '#ffffff',
-        horzColor: '#ffffff',
-    },
-    watermark: {
-        color: 'rgba(0, 255, 85, 0.3)',
-        visible: true,
-        text: 'GROK/USD Line Chart',
-    },
+const chart = LightweightCharts.createChart(document.getElementById('chart-container'), {
+  width: 400,
+  height: 300,
+  layout: { background: { type: 'solid', color: 'white' } }
 });
-
-const lineSeries = chart.addLineSeries({
-    color: '#00ff55', // Neon green for a cool vibe
-    lineWidth: 2,
-});
-
+const lineSeries = chart.addLineSeries(); // Fixed: Use addLineSeries
 lineSeries.setData([
-    { time: '2025-07-01', value: 500 },
-    { time: '2025-07-02', value: 510 },
-    { time: '2025-07-03', value: 525 },
-    { time: '2025-07-04', value: 518 },
-    { time: '2025-07-05', value: 530 },
-    { time: '2025-07-06', value: 545 },
-    { time: '2025-07-07', value: 550 },
-    { time: '2025-07-08', value: 565 },
-    { time: '2025-07-09', value: 570 },
-    { time: '2025-07-10', value: 575 },
+  { time: '2019-04-11', value: 80.01 },
+  { time: '2019-04-12', value: 96.63 },
+  { time: '2019-04-13', value: 76.64 },
+  { time: '2019-04-14', value: 81.89 },
+  { time: '2019-04-15', value: 74.43 },
+  { time: '2019-04-16', value: 80.01 },
+  { time: '2019-04-17', value: 96.63 },
+  { time: '2019-04-18', value: 76.64 },
+  { time: '2019-04-19', value: 81.89 },
+  { time: '2019-04-20', value: 74.43 },
 ]);
-
 chart.timeScale().fitContent();
-
-window.addEventListener('resize', () => {
-    chart.resize(window.innerWidth, 400);
-});
-
-// Optional: Add attribution logo for prominent credit
-chart.applyOptions({
-    attributionLogo: {
-        visible: true,
-        href: 'https://www.tradingview.com/',
-        height: 20,
-        width: 50,
-        position: 'bottom-right',
-    },
-});
