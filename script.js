@@ -1,9 +1,10 @@
-console.log(typeof LightweightCharts); // Debug: Should log "object"
+console.log(typeof LightweightCharts); // Should log "object"
 const chart = LightweightCharts.createChart(document.getElementById('chart-container'), {
   width: 400,
   height: 300,
   layout: { background: { type: 'solid', color: 'white' } }
 });
+console.log(chart); // Should log chart object
 const lineSeries = chart.addLineSeries();
 lineSeries.setData([
   { time: '2019-04-11', value: 80.01 },
